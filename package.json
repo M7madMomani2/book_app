@@ -1,0 +1,28 @@
+{
+  "name": "book_app",
+  "version": "1.0.0",
+  "description": "**Author**: Mohammad Momani **Version**: 1.0.0  ## Overview <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code 301 class. (i.e. What's your problem domain?) -->",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M7madMomani2/book_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/M7madMomani2/book_app/issues"
+  },
+  "homepage": "https://github.com/M7madMomani2/book_app#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "superagent": "^6.1.0"
+  }
+}
