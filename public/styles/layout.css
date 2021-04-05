@@ -1,0 +1,232 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body{
+display: flex;
+justify-content: center;
+align-items: center;
+background: #000000;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    text-align-last: center;
+    background-color: hsl(0deg 0% 85%);
+    padding: 20px 0px;
+    width: 420px;
+    margin: 30px;
+
+}
+.card content{
+    width: auto;
+
+}
+
+.card h4{
+    background-color: unset;
+    text-align: center;
+    width: auto;
+    color: #420000;
+
+}
+.card h3{
+    background-color: unset;
+    text-align: center;
+    width: auto;
+    color: hsl(0deg 0% 29%);
+
+}
+.card img{
+    width: 200px;
+}
+.card p{
+    margin: 20px;
+    color: hsl(0deg 0% 29%);
+}
+
+main{
+margin-top: 20px;
+}
+.container{
+    display: flex;
+    background: #9c9c9c;
+    flex-direction: column;
+    align-content: initial;
+    align-items: center;
+    width: 480px;
+}
+
+
+h2{
+    text-align-last: auto;
+    width: 500px;
+    height: 37px;
+    color: white;
+    background-color: black;
+    
+}
+
+h4{
+    background-color: hsl(0deg 0% 29%);
+    padding: 10px;
+    color: white;
+    text-align-last: auto;
+    width: 480px;
+    text-align: center;
+}
+form{
+    width: 400px;
+    padding: 50px;
+    margin: 30px 0;
+}
+form label {
+
+    font-size: larger;
+    margin-left: 20px;
+}
+form button {
+    font-size: larger;
+    background: #4a4a4a;
+    color: white;
+    text-align-last: center;
+    margin: 21px 101px;
+    padding: 15px;
+}
+
+#txbox{
+    font-size: xx-large;
+    border: black;
+    width: inherit;
+    text-align-last: center;
+    margin-bottom: 17px;
+}
+form input {
+    margin-right: 20px;
+}
+
+fieldset{
+    background-color: aliceblue;
+    border: black;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+@media(min-width: 960px){
+.container{
+    display: inline-flex;    
+    background: #9c9c9c;
+    flex-direction: column;
+    align-content: initial;
+    align-items: flex-start;
+    width: 960px;
+    flex-flow: wrap;
+}
+
+
+.card{
+    display: flex;
+    flex-direction: column;
+    text-align-last: center;
+    background-color: hsl(0deg 0% 85%);
+    padding: 20px 0px;
+    width: 420px;
+    margin: 30px;
+
+}
+.card content{
+    width: auto;
+
+}
+
+.card h4{
+    background-color: unset;
+    text-align: center;
+    width: auto;
+    color: #420000;
+
+}
+.card h3{
+    background-color: unset;
+    text-align: center;
+    width: auto;
+    color: hsl(0deg 0% 29%);
+
+}
+.card img{
+    width: 200px;
+}
+.card p{
+    margin: 20px;
+    color: hsl(0deg 0% 29%);
+}
+
+main{
+margin-top: 20px;
+}
+
+
+
+h2{
+    text-align-last: auto;
+    width: 500px;
+    height: 37px;
+    color: white;
+    background-color: black;
+    
+}
+
+h4{
+    background-color: hsl(0deg 0% 29%);
+    padding: 10px;
+    color: white;
+    text-align-last: auto;
+    width: 480px;
+    text-align: center;
+}
+form{
+    width: 400px;
+    padding: 50px;
+    margin: 30px 0;
+}
+form label {
+
+    font-size: larger;
+    margin-left: 20px;
+}
+form button {
+    font-size: larger;
+    background: #4a4a4a;
+    color: white;
+    text-align-last: center;
+    margin: 21px 101px;
+    padding: 15px;
+}
+
+#txbox{
+    font-size: xx-large;
+    border: black;
+    width: inherit;
+    text-align-last: center;
+    margin-bottom: 17px;
+}
+form input {
+    margin-right: 20px;
+}
+
+fieldset{
+    background-color: aliceblue;
+    border: black;
+    margin-bottom: 10px;
+}
+
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Book Collection</title>
+  <link rel="stylesheet" href="/styles/layout.css">
+
+</head>
+<body>
+  <main>
+    <div class="container">
+      <% searchResults.forEach( book=> { %>
+        <div class="card">
+          <div class="imgBx">
+            <img src='<%=book.img.thumbnail%>'>
+          </div>
+          <div class="content">
+            <h4>
+              <%= book.title %>
+            </h4>
+            <h3>
+              <%= book.authers %>
+            </h3>
+            <p>
+              <%= book.description %>
+            </p>
+          </div>
+        </div>
+        <% }) %>
+
+        
+    </div>
+  </main>
+</body>
+</html>
