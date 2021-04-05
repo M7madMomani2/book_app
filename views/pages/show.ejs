@@ -7,7 +7,12 @@
 </head>
 <body>
   <main>
+    <h2>Best Books!</h2>
+    <h4>Search Result</h4>
+
     <div class="container">
+      <% let counter =0 ; %>
+
       <% searchResults.forEach( book=> { %>
         <div class="card">
           <div class="imgBx">
@@ -19,14 +24,28 @@
             </h4>
             <h3>
               <%= book.authers %>
+              <%= book.ispn %>
+
             </h3>
             <p>
               <%= book.description %>
             </p>
           </div>
+          <form action="/" method="POST" >
+            <input type="hidden" name="authers" value= "<%= book.authers %>">
+            <input type="hidden" name="title" value="<%= book.title %>">
+            <input type="hidden" name="ispn" value=" <%= book.ispn %>">
+            <input type="hidden" name="img" value="<%=book.img.thumbnail%>">
+            <input type="hidden"  name="description" value= "<%= book.description %>">
+            <input  type="submit" name="submit" id="submitBtn">
+            </form>
         </div>
         <% }) %>
-
+        
+       
+  
+      
+  
         
     </div>
   </main>

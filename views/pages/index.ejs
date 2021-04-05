@@ -2,10 +2,39 @@
 <html lang="en">
   <head>
     <title>Book Collection</title>
+    <link rel="stylesheet" href="/styles/layout.css">
+
   </head>
   <body>
     <main>
       <h4>My Book Collection</h4>
-    </main>
+
+
+      <div class="container">
+
+        <div class="card">
+          <div class="imgBx">
+            <img src='<%=myBooks.img %>'>
+          </div>
+          <div class="content">
+            <h4>
+              <%= myBooks.title %>
+            </h4>
+            <h3>
+              <%= myBooks.authers %>
+              <%= myBooks.ispn %>
+
+            </h3>
+            <p>
+              <%= myBooks.description %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      </main>
   </body>
 </html>
