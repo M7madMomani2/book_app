@@ -17,6 +17,8 @@ app.set('view engine', 'ejs');
 
 app.get('/', renderHomePage);
 app.post('/', addBook);
+app.get('/books/:id', showBook);
+
 app.get('/searches/new', showForm);
 app.post('/searches', createSearch);
 
@@ -34,9 +36,9 @@ function Book(info) {
     const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpg';
     this.title = info.title || 'No title available';
     this.img = info.imageLinks || placeholderImage;
-    this.ispn =info.industryIdentifiers[0].type||'';
+    this.isbn =info.industryIdentifiers[0].type||'';
     this.description = info.description || 'No description available';
-    this.authors = info.authors || 'No authors ';
+    this.author = info.author || 'No authors ';
 }
 
 function renderHomePage(request, response) {
@@ -69,16 +71,17 @@ function internalserverError(response) {
 function addBook(request, response){
     const data = request.body;
     console.log(data);
-    const insertSQL = 'INSERT INTO books (author,title, isbn,image_url,description) VALUES ($1, $2 ,$3 ,$4,$5);';
+    const insertSQL = 'INSERT INTO books (author,title, isbn,image_url,description) VALUES ($1, $2 ,$3 ,$4,$5) RETURNING id;';
     const inputArray = [data.author, data.title ,data.isbn,data.img,data.description];
     dbClient.query(insertSQL, inputArray).then((datadb)=>{
         console.log(datadb);
-    }).catch((error)=>{
-        console.log(error);
-    });
-    response.render('pages/index',{ myBooks: data });
+        response.redirect(`/books/${datadb.rows[0].id}`);
+    }).catch(internalserverError(response));
 }
-
+function showBook(request, response){
+    console.log(request.params.id);
+    response.send("hello");
+}
 // function fromDB() {
 //     locationLatitude = data.rows[0].latitude;
 //     locationLongitude = data.rows[0].longitude;
