@@ -82,37 +82,3 @@ function showBook(request, response){
     console.log(request.params.id);
     response.send("hello");
 }
-// function fromDB() {
-//     locationLatitude = data.rows[0].latitude;
-//     locationLongitude = data.rows[0].longitude;
-//     response.send(data.rows[0]);
-
-// }
-
-// // Route Middlewares
-// app.get('/location', (request, response) => {
-
-//     let search_query = request.query.city;
-//     const locationSQL = 'SELECT * FROM location WHERE  search_query=$1;';
-//     const sqlData = [search_query];
-//     dbClient.query(locationSQL, sqlData)
-//         .then((data)=>{
-//             if(data.rowCount === 0){
-//                 let url = `https://us1.locationiq.com/v1/search.php?key=${GEOCODE_API_KEY}&q=${search_query}&format=json`;
-//                 superagent.get(url).then(res => {
-//                     let data = res.body[0];
-//                     let locationObject = new Location(search_query, data);
-//                     const insertSQL = 'INSERT INTO location (search_query,formatted_query, latitude,longitude) VALUES ($1, $2 ,$3 ,$4);';
-//                     const inputArray = [search_query, locationObject.formatted_query ,locationObject.latitude,locationObject.longitude];
-//                     dbClient.query(insertSQL, inputArray);
-//                     response.send(locationObject);
-//                 })
-
-//             } else {
-//                 locationLatitude = data.rows[0].latitude;
-//                 locationLongitude = data.rows[0].longitude;
-//                 response.send(data.rows[0]);
-//             }
-//         })
-
-// });
