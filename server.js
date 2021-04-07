@@ -9,7 +9,7 @@ const methodOverride = require('method-override');
 
 const app = express();
 const PORT = process.env.PORT;
-const pg=require('pg');
+const pg = require('pg');
 const DATABASE_URL = process.env.DATABASE_URL;
 
 app.use(methodOverride('_method'));
@@ -20,11 +20,10 @@ app.set('view engine', 'ejs');
 app.get('/', renderHomePage);
 app.post('/', addBook);
 app.get('/books/:id', showBook);
-
-
-
 app.get('/searches/new', showForm);
 app.post('/searches', createSearch);
+app.put('/books/:id', updateBook);
+app.delete('/books/:id', deleteBook)
 
 app.use('*', (request, response) => response.status(404).send('This route does not exist'));
 
@@ -45,7 +44,7 @@ function Book(info) {
     const placeholderImage = 'https://i.imgur.com/J5LVHEL.jpg';
     this.title = info.title || 'No title available';
     this.img = info.imageLinks || placeholderImage;
-    this.isbn =info.industryIdentifiers[0].type||'';
+    this.isbn = info.industryIdentifiers[0].type || '';
     this.description = info.description || 'No description available';
     this.author = info.author || 'No authors ';
 }
@@ -53,9 +52,9 @@ function Book(info) {
 function renderHomePage(request, response) {
     dbClient.query(`SELECT * FROM books`).then(data => {
         // console.log(data.Results);
-        response.render('pages/index' ,{books :data.rows});
+        response.render('pages/index', { books: data.rows ,total: data.rowCount});
         // response.send(data.rows[0]);
-    }).catch((error=>{
+    }).catch((error => {
         response.send(error);
     }))
 }
@@ -82,28 +81,47 @@ function internalserverError(response) {
 }
 
 
-function addBook(request, response){
+function addBook(request, response) {
     const data = request.body;
     const insertSQL = 'INSERT INTO books (author,title, isbn,image_url,description) VALUES ($1, $2 ,$3 ,$4,$5) RETURNING id;';
-    const inputArray = [data.author, data.title ,data.isbn,data.img,data.description];
-    dbClient.query(insertSQL, inputArray).then((datadb)=>{
+    const inputArray = [data.author, data.title, data.isbn, data.img, data.description];
+    dbClient.query(insertSQL, inputArray).then((datadb) => {
         console.log(datadb.rows[0].id);
         response.redirect(`/books/${datadb.rows[0].id}`);
     }).catch(internalserverError(response));
 }
 
 
-function showBook(request, response){
-    const sql ='SELECT * FROM books WHERE id = $1';
-    const idDB =[request.params.id];
+function showBook(request, response) {
+    const sql = 'SELECT * FROM books WHERE id = $1';
+    const idDB = [request.params.id];
     console.log(request.params.id);
-    dbClient.query(sql,idDB).then(data => {
+    dbClient.query(sql, idDB).then(data => {
         // console.log(data.Results);
         console.log(data.rows);
         // response.send(data.rows)
-        response.render('pages/books/show' ,{books :data.rows});
-    }).catch((error=>{
+        response.render('pages/books/show', { books: data.rows});
+    }).catch((error => {
         console.log(error);
-        response.send("error");
+        response.send('error');
     }))
+}
+
+
+function updateBook(request, response) {
+    const id = request.params.id;
+    const sql = 'UPDATE books SET author=$1, title=$2, isbn=$3, image_url=$4, description=$5 WHERE id=$6;';
+    const {author, title, isbn, img, description} = request.body;
+    let values = [author,title,isbn,img,description,id];
+    dbClient.query(sql,values).then(result => {
+        response.redirect(`/`);
+    })
+}
+
+function deleteBook(request, response){
+    let id = request.params.id;
+    let SQL = 'DELETE FROM books WHERE id=$1';
+    dbClient.query(SQL, [id]).then(result => {
+        response.redirect('/');
+    })
 }

@@ -67,9 +67,6 @@ form button {
     text-align-last: center;
     margin-bottom: 17px;
 }
-form input {
-    margin-right: 20px;
-}
 
 fieldset{
     background-color: aliceblue;
@@ -119,8 +116,37 @@ fieldset{
     background: #4a4a4a;
     color: white;
     margin: 1px 110px;
-    position: absolute;
+    position: initial;
     padding: 15px;
+}
+.card form{
+    width: 400px;
+    display: flex;
+    margin: 0;
+    flex-flow: column;
+    padding: 20px;
+
+}input[type=text] {
+overflow: auto;
+
+  }
+   ul  {
+    display: flex;
+    list-style-type: none;
+    place-content: flex-end;
+    font-size: larger;
+}
+   ul li {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+}
+ ul li a {
+    display: contents;
+    text-decoration: none;
+
+    margin-right: 60px;
+    color: white;
 }
 
 @media(min-width: 960px){
@@ -132,7 +158,6 @@ fieldset{
     width: 960px;
     flex-flow: column;
 }
-
 
 main{
 margin-top: 20px;
@@ -146,6 +171,25 @@ h2{
     background-color: black;
 }
 
+ ul  {
+    display: flex;
+    list-style-type: none;
+    place-content: flex-end;
+    font-size: larger;
+}
+       ul li {
+        text-decoration: none;
+        margin-right: 60px;
+        color: white;
+        text-transform: uppercase;
+
+    }
+     ul li a {
+        display: contents;
+        text-decoration: none;
+        margin-right: 60px;
+        color: white;
+    }
 h4{
     background-color: hsl(0deg 0% 29%);
     padding: 10px;
@@ -232,8 +276,10 @@ fieldset{
     background: #4a4a4a;
     color: white;
     margin: 1px 110px;
-    position: absolute;
+    position: initial;
     padding: 15px;
     }
-    
+    input[type=text] {
+        overflow: auto;
+      }   
 }
