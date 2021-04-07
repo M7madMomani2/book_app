@@ -1,11 +1,16 @@
 <% books.forEach( book=> { %>
-<form action="book/<%= book.id %>?_method=PUT" method="POST">
+<form action="<%= book.id %>?_method=PUT" method="POST">
   <input type="text" name="author" value= "<%= book.author %>">
   <input type="text" name="title" value="<%= book.title %>">
   <input type="text" name="isbn" value=" <%= book.isbn %>">
   <input type="text" name="img" value="<%=book.image_url%>">
   <input type="text"  name="description" value= "<%= book.description %>">
-  <input  type="submit" name="submit" id="submitBtn">
+  <input  type="submit" name="Update" id="submitBtn" value="Update">
 </form>
+<form action="<%= book.id %>?_method=DELETE" method="POST">
+  <input  type="submit" name="DELETE" id="submitBtn" value="DELETE">
+</form>
+
 <% }) %>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

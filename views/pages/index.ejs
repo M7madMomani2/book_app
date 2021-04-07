@@ -9,7 +9,14 @@
 
 <body>
   <main>
-    <h4>My Book Collection</h4>
+    <ul>
+      <li><a href="#">home</a></li>
+      <li><a href="searches/new">search</a></li>
+    </ul>
+    <h2>
+      Best Books!
+    </h2>
+    <h4>My Book Collection (<%= total %>)</h4>
     <div class="container">
       <% books.forEach(book=> { %>
         <div class="card">
@@ -22,10 +29,9 @@
             <!-- <h3> <%= book.isbn %></h3>
             <p><%= book.description %></p> -->
             <form action="/books/<%= book.id %>" method="get">
-            <input type="submit" name="view details">
+            <input type="submit" name="view details"id="submitBtn" value="view details">
             </form>
           </div>
-          <!-- <form action="\" method="get"></form> -->
         </div>
         <% }) %>
   </main>
