@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Book details</title>
-  <link rel="stylesheet" href="/styles/layout.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/layout.css">
 
+    <title>Document</title>
 </head>
 <body>
-  <main>
-    <h2>Best Books!</h2>
-    <h4>Search Result</h4>
-
-    <div class="container">
-      <% let counter =0 ; %>
-
-      <% books.forEach(book=> { %>
+    <% books.forEach(book=> { %>
         <div class="card">
+            <h1>hellllllllllo</h1>
           <div class="imgBx">
             <img src='<%=book.image_url%>'>
           </div>
@@ -22,12 +19,9 @@
             <h4><%= book.title %></h4>
             <h3><%= book.author %> 
               <%= book.isbn %></h3>
-            <p><%= book.description %>
+            <p><%= book.description %></p>
           </div>
         </div>
         <% }) %>
-              
-    </div>
-  </main>
 </body>
 </html>
