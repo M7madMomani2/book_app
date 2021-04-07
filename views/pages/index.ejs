@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Book Collection</title>
-    <link rel="stylesheet" href="/styles/layout.css">
 
-  </head>
-  <body>
-    <main>
-      <h4>My Book Collection</h4>
+<head>
+  <title>Book Collection</title>
+  <link rel="stylesheet" href="/styles/layout.css">
+
+</head>
+
+<body>
+  <main>
+    <h4>My Book Collection</h4>
 
 
-      <div class="container">
-
+    <div class="container">
+      <% books.forEach(book=> { %>
         <div class="card">
           <div class="imgBx">
-            <img src='<%=myBooks.img %>'>
+            <img src='<%=book.image_url%>'>
           </div>
           <div class="content">
-            <h4>
-              <%= myBooks.title %>
-            </h4>
-            <h3>
-              <%= myBooks.authers %>
-              <%= myBooks.ispn %>
-
-            </h3>
-            <p>
-              <%= myBooks.description %>
-            </p>
+            <h4><%= book.title %></h4>
+            <h3><%= book.author %> </h3>
+            <!-- <h3> <%= book.isbn %></h3>
+            <p><%= book.description %></p> -->
+            <form action="/books/<%= book.id %>" method="get">
+            <input type="submit" name="view details">
+            </form>
           </div>
+          <!-- <form action="\" method="get"></form> -->
         </div>
-      </div>
+        <% }) %>
+  </main>
+</body>
 
-
-
-
-      </main>
-  </body>
 </html>

@@ -13,32 +13,20 @@
     <div class="container">
       <% let counter =0 ; %>
 
-      <% searchResults.forEach( book=> { %>
+      <% books.forEach(book=> { %>
         <div class="card">
           <div class="imgBx">
-            <img src='<%=book.img.thumbnail%>'>
+            <img src='<%=book.image_url%>'>
           </div>
           <div class="content">
-            <h4>
-              <%= book.title %>
-            </h4>
-            <h3>
-              <%= book.author %>
-              <%= book.isbn %>
-
-            </h3>
-            <p>
-              <%= book.description %>
-            </p>
+            <h4><%= book.title %></h4>
+            <h3><%= book.author %> 
+              <%= book.isbn %></h3>
+            <p><%= book.description %>
           </div>
         </div>
         <% }) %>
-        
-       
-  
-      
-  
-        
+              
     </div>
   </main>
 </body>
