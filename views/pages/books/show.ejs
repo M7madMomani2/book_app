@@ -9,7 +9,19 @@
     <title>Document</title>
 </head>
 <body>
-    <%- include("detail")  %>
-
+    <% books.forEach(book=> { %>
+        <div class="card">
+            <h1>hellllllllllo</h1>
+          <div class="imgBx">
+            <img src='<%=book.image_url%>'>
+          </div>
+          <div class="content">
+            <h4><%= book.title %></h4>
+            <h3><%= book.author %> 
+              <%= book.isbn %></h3>
+            <p><%= book.description %></p>
+          </div>
+        </div>
+        <% }) %>
 </body>
 </html>

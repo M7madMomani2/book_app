@@ -101,7 +101,7 @@ function showBook(request, response){
         // console.log(data.Results);
         console.log(data.rows);
         // response.send(data.rows)
-        response.redirect('pages/books/show' ,{books :data.rows});
+        response.render('pages/books/show' ,{books :data.rows});
     }).catch((error=>{
         console.log(error);
         response.send("error");
