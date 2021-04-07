@@ -106,5 +106,4 @@ function showBook(request, response){
         console.log(error);
         response.send("error");
     }))
-
 }
