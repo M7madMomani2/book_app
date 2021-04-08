@@ -1,3 +1,4 @@
+
 <% books.forEach( book=> { %>
 <form action="<%= book.id %>?_method=PUT" method="POST">
   <input type="text" name="author" value= "<%= book.author %>">

@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Indie Flower', cursive;
 }
 
 body{
@@ -9,6 +10,9 @@ display: flex;
 justify-content: center;
 align-items: center;
 background: #000000;
+}
+.cont{
+    width: 600px;
 }
 
 main{
@@ -130,23 +134,26 @@ fieldset{
 overflow: auto;
 
   }
-   ul  {
+ul  {
     display: flex;
+    background-color: black;
     list-style-type: none;
-    place-content: flex-end;
+    place-content: space-around;    
     font-size: larger;
 }
    ul li {
     text-decoration: none;
     text-transform: uppercase;
-    color: white;
+    color: white;    
 }
  ul li a {
     display: contents;
     text-decoration: none;
-
-    margin-right: 60px;
+    font-size: xx-large;
     color: white;
+}
+nav{
+display: block;
 }
 
 @media(min-width: 960px){
@@ -172,9 +179,10 @@ h2{
 }
 
  ul  {
+    background-color: black;
     display: flex;
     list-style-type: none;
-    place-content: flex-end;
+    place-content: space-around;    
     font-size: larger;
 }
        ul li {
@@ -187,7 +195,7 @@ h2{
      ul li a {
         display: contents;
         text-decoration: none;
-        margin-right: 60px;
+        font-size: xx-large;
         color: white;
     }
 h4{
